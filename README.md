@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Bash](https://img.shields.io/badge/bash-5.0%2B-green.svg)](https://www.gnu.org/software/bash/)
-[![yq](https://img.shields.io/badge/yq-4.0%2B-blue.svg)](https://github.com/mikefarah/yq)
+[![yq](https://img.shields.io/badge/yq-4.48.2%2B-blue.svg)](https://github.com/mikefarah/yq)
 
 ## The Problem: Configuration Hell in Polyglot CI/CD
 
@@ -113,6 +113,7 @@ json_to_associative_array() {
 
     # yq converts JSON/YAML to shell-safe key=value pairs
     # Nested objects use "__" separator: parent__child__grandchild
+    # Note: Requires yq v4.48.2+ for --shell-key-separator flag (PR #2497)
     while IFS='=' read -r key value; do
         value="${value%\'}"  # strip trailing single quote
         value="${value#\'}"  # strip leading single quote
@@ -400,8 +401,12 @@ associative_array_to_json_file unified_config "unified_cloud_config.json"
 ### Prerequisites
 
 ```bash
-# Check if yq is installed
+# Check if yq is installed (v4.48.2+ required for --shell-key-separator)
 command -v yq >/dev/null 2>&1 || echo "Install yq: brew install yq"
+
+# Verify yq version (needs v4.48.2+ for --shell-key-separator flag added in PR #2497)
+yq --version
+# Should show: yq version v4.48.2 or higher
 
 # Bash 4.0+ (for associative arrays)
 bash --version | head -1
@@ -720,7 +725,7 @@ brew install bash
 
 **Issue: Nested values not working**
 ```bash
-# Check yq version (needs 4.0+)
+# Check yq version (needs v4.48.2+ for --shell-key-separator support)
 yq --version
 
 # Verify shell separator
