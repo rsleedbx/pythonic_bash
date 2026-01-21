@@ -430,7 +430,7 @@ yq --version
 ### Download pythonic_bash.sh
 
 ```bash
-curl -o pythonic_bash.sh https://raw.githubusercontent.com/yourusername/pythonic_bash/main/pythonic_bash.sh
+curl -o pythonic_bash.sh https://raw.githubusercontent.com/rsleedbx/pythonic_bash/main/pythonic_bash.sh
 source pythonic_bash.sh
 ```
 
@@ -715,12 +715,19 @@ sudo snap install yq  # Linux
 
 **Issue: "declare: -A: invalid option"**
 ```bash
-# You're using Bash 3.x (macOS default)
+# This error means you're using Bash 3.x (macOS default), which does NOT support associative arrays
+# Associative arrays require Bash 4.0+
+
+# Check your current Bash version
 bash --version
 
-# Install Bash 5.x
+# Install Bash 5.x via Homebrew (macOS)
 brew install bash
-/opt/homebrew/bin/bash  # Use new bash
+
+# Use the new Bash (not the system default)
+/opt/homebrew/bin/bash
+
+# Or update your shebang to: #!/opt/homebrew/bin/bash
 ```
 
 **Issue: Nested values not working**
@@ -764,10 +771,9 @@ MIT License - See LICENSE file
 
 ## Related Reading
 
-- [Why Bash still matters in 2026](https://blog.example.com/bash-2026)
-- [The death of .env files](https://blog.example.com/no-more-env)
-- [yq: jq for YAML](https://github.com/mikefarah/yq)
-- [Bash associative arrays deep dive](https://bash.cyberciti.biz/guide/Arrays)
+- [GNU Bash Manual - Arrays](https://www.gnu.org/software/bash/manual/html_node/Arrays.html) - Official documentation on Bash arrays
+- [yq: jq for YAML](https://github.com/mikefarah/yq) - The tool that makes this all possible
+- [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/) - Comprehensive Bash scripting reference
 
 ---
 
