@@ -1,0 +1,28 @@
+# Test artifacts
+*.json
+*.yaml
+*.yml
+/tmp/
+
+# macOS
+.DS_Store
+._*
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+
+# Logs
+*.log
