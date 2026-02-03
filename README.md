@@ -8,7 +8,7 @@
 
 ## Quick Start (30 seconds)
 
-**TL;DR:** Make Bash read JSON/YAML files directly. No more separate `.env` files!
+I wrote dozens of database provisioning scripts. Simple SQL worked with `psql | grep`. Multi-step SQL needed Python. I maintained separate configs—`.env` for Bash, YAML for Python. Constant synchronization and config coding style changes slowed me down. I built `pythonic_bash` so Bash uses the same JSON/YAML configs as Python. My productivity increased—no more context switching, no more sync errors, just one config format everywhere.
 
 **Requirements:** Bash 4.0+, yq 4.48.2+
 - ⚠️ **macOS users:** Default Bash is 3.2 (too old). Run `brew install bash` first.
@@ -51,9 +51,9 @@ associative_array_to_json_file config "config.json"
 echo "✅ Done! Check config.json - it now has last_run timestamp"
 ```
 
-**That's it!** Python/Node.js can now read the same `config.json` file. No `.env` duplication needed.
+**That's it!** Bash and Python can now read the same `config.json` file. No `.env` duplication needed.
 
-**Note:** Requires Bash 4.0+ (macOS ships with 3.2 - see [Installation](#installation--requirements) for upgrade instructions)
+**See the full [README on GitHub](https://github.com/rsleedbx/pythonic_bash) for detailed installation, examples, and troubleshooting.**
 
 ---
 
